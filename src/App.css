@@ -11,7 +11,6 @@
 body {
   font-family: 'Manrope', sans-serif;
   background-color: var(--darkBlue);
-  display: flex;
 }
 
 .container {
@@ -22,6 +21,7 @@ body {
   background-color: var(--grayishBlue);
   margin: 10px 10px auto;
   min-height: 330px;
+  min-width: 345px;
   max-width: 540px;
 }
 

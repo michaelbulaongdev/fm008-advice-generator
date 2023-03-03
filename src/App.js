@@ -43,7 +43,6 @@ function App() {
 					<div className='dice'></div>
 				</div>
 			</div>
-			<h1>Test</h1>
 		</div>
 	);
 }
