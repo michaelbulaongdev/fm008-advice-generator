@@ -2,44 +2,37 @@ import {useState} from 'react';
 import './App.css';
 
 function App() {
-	const [data, setData] = useState(null);
+	const [data, setData] = useState({});
 	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState(null);
 
-	const api = 'https://api.adviceslip.com/advice';
-
-	const fetchData = async (api) => {
+	const handleClick = async () => {
 		setLoading(true);
 		try {
-			const response = await fetch(api);
-
-			if (!response.ok) {
-				throw new Error(response.status);
-			}
-			let actualData = await response.json();
-			setData(actualData);
-			setError(null);
+			const response = await (
+				await fetch('https://api.adviceslip.com/advice')
+			).json();
+			setData(response.slip);
 		} catch (err) {
-			setError(err.message);
-			setData(null);
+			console.log(err.message);
 		} finally {
 			setLoading(false);
 		}
 	};
 
+	const {id, advice} = data;
+
 	return (
 		<div>
 			<div className='container'>
 				<div className='card'>
-					<p className='advise-number'>Advise # {data.slip_id}</p>
-					<div className='advise-container'>
-						{loading && <p>Seeking advise...</p>}
-						{error && <p>Seek again...</p>}
-						{data !== null && <p className='advise'>`"${data.advise}"`</p>}
+					<p className='quote-number'>Advise # {id}</p>
+					<div className='quote-container'>
+						{data !== {} && !loading && <p className='quote'>"{advice}"</p>}
 					</div>
 					<div className='divider'></div>
 				</div>
-				<div onClick={fetchData(api)} className='btn-container'>
+				<div className='btn-container'>
+					<button onClick={handleClick}>Click Me</button>
 					<div className='dice'></div>
 				</div>
 			</div>

@@ -15,6 +15,12 @@ body {
 
 .container {
   display: flex;
+  flex-direction: column;
+  background-color: var(--grayishBlue);
+  margin: 10px 10px auto;
+  min-height: 330px;
+  min-width: 345px;
+  max-width: 540px;
 }
 
 .card {
@@ -25,7 +31,7 @@ body {
   max-width: 540px;
 }
 
-.advise-number {
+.quote-number {
   color: var(--neonGreen);
 }
 
