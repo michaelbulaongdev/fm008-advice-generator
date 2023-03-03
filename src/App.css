@@ -11,12 +11,25 @@
 body {
   font-family: 'Manrope', sans-serif;
   background-color: var(--darkBlue);
+  display: flex;
 }
 
 .container {
   display: flex;
 }
 
+.card {
+  background-color: var(--grayishBlue);
+  margin: 10px 10px auto;
+  min-height: 330px;
+  max-width: 540px;
+}
+
+.advise-number {
+  color: var(--neonGreen);
+}
+
 .quote {
   font-size: 28px;
+  color: var(--lightCyan);
 }

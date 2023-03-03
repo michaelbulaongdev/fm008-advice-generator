@@ -31,7 +31,7 @@ function App() {
 		<div>
 			<div className='container'>
 				<div className='card'>
-					<p className='adviseNumber'>Advise # {data.slip_id}</p>
+					<p className='advise-number'>Advise # {data.slip_id}</p>
 					<div className='advise-container'>
 						{loading && <p>Seeking advise...</p>}
 						{error && <p>Seek again...</p>}
@@ -43,6 +43,7 @@ function App() {
 					<div className='dice'></div>
 				</div>
 			</div>
+			<h1>Test</h1>
 		</div>
 	);
 }
