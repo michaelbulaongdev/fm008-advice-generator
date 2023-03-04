@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {ReactComponent as DividerDesktop} from './images/pattern-divider-desktop.svg';
+import {ReactComponent as Divider} from './images/pattern-divider-mobile.svg';
 import {ReactComponent as Dice} from './images/icon-dice.svg';
 import './App.css';
 
@@ -40,7 +40,7 @@ function App() {
 						<p className='quote'>{loading ? '' : quoteText}</p>
 					</div>
 					<div className='divider'>
-						<DividerDesktop />
+						<Divider />
 					</div>
 				</div>
 				<div className='button' onClick={fetchData}>
