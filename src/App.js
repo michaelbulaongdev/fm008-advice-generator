@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {ReactComponent as DividerDesktop} from './images/pattern-divider-desktop.svg';
 import {ReactComponent as Dice} from './images/icon-dice.svg';
 import './App.css';
@@ -20,6 +20,10 @@ function App() {
 			setLoading(false);
 		}
 	};
+
+	useEffect(() => {
+		fetchData();
+	}, []);
 
 	const {id, advice} = data;
 	const quoteNumber = `ADVICE # ${id}`;
