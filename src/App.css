@@ -11,31 +11,43 @@
 body {
   font-family: 'Manrope', sans-serif;
   background-color: var(--darkBlue);
+  text-align: center;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  background-color: var(--grayishBlue);
-  margin: 10px 10px auto;
-  min-height: 330px;
-  min-width: 345px;
-  max-width: 540px;
 }
 
 .card {
-  background-color: var(--grayishBlue);
+  background-color: var(--darkGrayishBlue);
   margin: 10px 10px auto;
-  min-height: 330px;
-  min-width: 345px;
-  max-width: 540px;
+  min-height: 290px;
+  min-width: 300px;
+  max-width: 500px;
+  border-radius: 20px;
+  padding: 20px;
 }
 
 .quote-number {
   color: var(--neonGreen);
+  font-stretch: expanded;
 }
 
 .quote {
   font-size: 28px;
   color: var(--lightCyan);
+  min-height: 130px;
+}
+
+.divider {
+  color: var(--grayishBlue)
+}
+
+.button {
+  height: 50px;
+  width: 50px;
+  background-color: var(--neonGreen);
+  border-radius: 50%;
+  margin: auto;
 }

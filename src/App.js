@@ -1,4 +1,6 @@
 import {useState} from 'react';
+import {ReactComponent as DividerDesktop} from './images/pattern-divider-desktop.svg';
+import {ReactComponent as Dice} from './images/icon-dice.svg';
 import './App.css';
 
 function App() {
@@ -20,20 +22,24 @@ function App() {
 	};
 
 	const {id, advice} = data;
+	const adviceNumber = `Advise # ${id}`;
 
 	return (
 		<div>
 			<div className='container'>
 				<div className='card'>
-					<p className='quote-number'>Advise # {id}</p>
+					<p className='quote-number'>{adviceNumber.toUpperCase()}</p>
 					<div className='quote-container'>
 						{data !== {} && !loading && <p className='quote'>"{advice}"</p>}
 					</div>
-					<div className='divider'></div>
+					<div className='divider'>
+						<DividerDesktop />
+					</div>
 				</div>
-				<div className='btn-container'>
-					<button onClick={handleClick}>Click Me</button>
-					<div className='dice'></div>
+				<div className='button' onClick={handleClick}>
+					<div className='dice'>
+						<Dice />
+					</div>
 				</div>
 			</div>
 		</div>
