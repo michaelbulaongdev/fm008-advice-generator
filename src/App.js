@@ -7,7 +7,7 @@ function App() {
 	const [data, setData] = useState({});
 	const [loading, setLoading] = useState(true);
 
-	const handleClick = async () => {
+	const fetchData = async () => {
 		setLoading(true);
 		try {
 			const response = await (
@@ -22,21 +22,24 @@ function App() {
 	};
 
 	const {id, advice} = data;
-	const adviceNumber = `Advise # ${id}`;
+	const quoteNumber = `ADVICE # ${id}`;
+	const quoteText = `"${advice}"`;
 
 	return (
 		<div>
 			<div className='container'>
 				<div className='card'>
-					<p className='quote-number'>{adviceNumber.toUpperCase()}</p>
+					<p className='quote-number'>
+						{loading ? '' : quoteNumber.toUpperCase()}
+					</p>
 					<div className='quote-container'>
-						{data !== {} && !loading && <p className='quote'>"{advice}"</p>}
+						<p className='quote'>{loading ? '' : quoteText}</p>
 					</div>
 					<div className='divider'>
 						<DividerDesktop />
 					</div>
 				</div>
-				<div className='button' onClick={handleClick}>
+				<div className='button' onClick={fetchData}>
 					<div className='dice'>
 						<Dice />
 					</div>
