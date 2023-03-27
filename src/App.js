@@ -1,10 +1,12 @@
 import {useEffect, useState} from 'react';
-import {ReactComponent as Divider} from './images/pattern-divider-mobile.svg';
 import {ReactComponent as Dice} from './images/icon-dice.svg';
 import './App.css';
 
 function App() {
-	const [data, setData] = useState({});
+	const [data, setData] = useState({
+		id: '',
+		advice: '',
+	});
 	const [loading, setLoading] = useState(true);
 
 	const fetchData = async () => {
@@ -17,7 +19,9 @@ function App() {
 		} catch (err) {
 			console.log(err.message);
 		} finally {
-			setLoading(false);
+			setTimeout(() => {
+				setLoading(false);
+			}, 2000);
 		}
 	};
 
@@ -29,18 +33,33 @@ function App() {
 	const quoteNumber = `ADVICE # ${id}`;
 	const quoteText = `"${advice}"`;
 
+	const loadingSpinner = (
+		<div className='lds-spinner'>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+	);
+
 	return (
 		<div>
 			<div className='container'>
 				<div className='card'>
+					{loading && loadingSpinner}
 					<p className='quote-number'>
-						{loading ? '' : quoteNumber.toUpperCase()}
+						{!loading && quoteNumber.toUpperCase()}
 					</p>
 					<div className='quote-container'>
-						<p className='quote'>{loading ? '' : quoteText}</p>
-					</div>
-					<div className='divider'>
-						<Divider />
+						{!loading && <p className='quote'>{quoteText}</p>}
 					</div>
 				</div>
 				<div className='button' onClick={fetchData}>
